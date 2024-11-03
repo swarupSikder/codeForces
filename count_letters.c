@@ -3,22 +3,19 @@
 #include <string.h>
 #include <math.h>
 int main(){
-    //initialize frequency array {0,0,0, . . .}
-    int f[27];
-    for(int i=0; i<27 ;i++){
-        f[i]=0;
-    }
-
     char s[1000000];
-    gets(s);
+    scanf("%s", s);
+
+    //initialize frequency array {0,0,0, . . .}
+    int f[1000]={0};
 
     for(int i=0; i<strlen(s) ;i++){
-        f[s[i]-'a']++;
+        f[s[i]]++;
     }
 
-    for(int i=0; i<27 ;i++){
+    for(int i=97; i<123 ;i++){
         if(f[i]!=0){
-            printf("%c : %d\n", i+'a', f[i]);
+            printf("%c : %d\n", i, f[i]);
         }
     }
 
