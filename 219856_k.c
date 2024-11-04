@@ -1,6 +1,6 @@
 //auther:       SwarupSikder
-//judge:        hackerRank
-//contest:      YCPC by Phitron
+//judge:        codeForces
+//contest:      string
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,7 +19,7 @@ void body(){
     int len_t= strlen(t);
     int len_dif= abs(len_s-len_t);
     int max_len, min_len;
-    if(len_s>=len_t){
+    if(len_s>len_t){
         max_len= len_s;
         min_len= len_t;
     }
@@ -37,10 +37,10 @@ void body(){
 
     for(int i=min_len; i<max_len ;i++){
         if(len_s>len_t){
-            newArray[i]= s[i];
+            newArray[min_len+i]= s[i];
         }
         else{
-            newArray[i]= t[i];
+            newArray[min_len+i]= t[i];
         }
     }
     newArray[max_len+min_len]='\0';
@@ -49,6 +49,8 @@ void body(){
     //     output     //
     //----------------//
     printf("%s\n", newArray);
+    
+
 }
 
 

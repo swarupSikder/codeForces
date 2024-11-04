@@ -2,20 +2,18 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-int main(){
-    char s[1000000];
-    scanf("%s", s);
+int main() {
+    char str[1000001];
+    scanf("%s", str);
+    int f[26] = {0};
 
-    //initialize frequency array {0,0,0, . . .}
-    int f[1000]={0};
-
-    for(int i=0; i<strlen(s) ;i++){
-        f[s[i]]++;
+    for(int i=0; str[i]!='\0' ;i++){
+        (int) f[str[i]-'a']++;
     }
 
-    for(int i=97; i<123 ;i++){
-        if(f[i]!=0){
-            printf("%c : %d\n", i, f[i]);
+    for(int i=0; i<26; i++){
+        if(f[i]>0) {
+            printf("%c : %d\n", (char) i+'a', f[i]);
         }
     }
 

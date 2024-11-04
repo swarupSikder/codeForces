@@ -1,16 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-int main(){
-    int x,y,z;
-    x = 10, y = 20, z = 30;
-    int *p, *q;
-    p = &x;
-    q = &y;
-    *p = 40;
-    x = 50;
-    q = p;
-    printf("%d",*q);
-
-    return 0;
+void f2()
+{
+printf("f1 ");
+}
+void f1()
+{
+printf("f2 ");
+f2();
+}
+int main()
+{
+printf("Main ");
+f1();
 }
