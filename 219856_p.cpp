@@ -1,32 +1,36 @@
-//author:   Swarup Sikder
-//judge:    ...
-//problem:  ...
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+int main() {
     string s;
     getline(cin, s);
 
-    for(int i=0; i<s.size() ;){
-        if(s[i]=='!' ||s[i]=='.' ||s[i]=='?' ||s[i]==','){
-            s.erase(i,1);
-            continue;
+    // Remove unwanted punctuation in-place
+    string clean;
+    for (char c : s) {
+        if (isalpha(c) || c == ' ') {
+            clean += c; // Keep only alphabets and spaces
         }
-        i++;
     }
-    
-    //cout<< s <<endl;
 
-    stringstream ss(s);
+    // Trim leading/trailing spaces
+    while (!clean.empty() && clean.front() == ' ') {
+        clean.erase(clean.begin());
+    }
+    while (!clean.empty() && clean.back() == ' ') {
+        clean.pop_back();
+    }
+
+    // Count words
+    stringstream ss(clean);
     string word;
-    int count=0;
-    
-    while(ss >> word){
+    int count = 0;
+
+    while (ss >> word) {
         count++;
     }
 
-    cout<< count <<endl;
-    
+    cout << count << endl;
+
     return 0;
 }
