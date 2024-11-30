@@ -1,2 +1,2 @@
-
-        if(i==4 || i==6 || i==15 || i==19 || i==24){
+cout<< score <<endl;
+                // cout<< s <<endl;

@@ -8,10 +8,8 @@ int main(){
     int n;
     cin>> n;
 
-    char s[n];
-    for(int i=0; i<n ;i++){
-        cin>> s[i];
-    }
+    string s;
+    cin>> s;
 
     int f[26]= {0};
     for(char c: s){
@@ -19,13 +17,12 @@ int main(){
     }
 
     // Sort the string in-place
-    int idx= 0; // Position to overwrite in the original string
+    int idx= 0;
     for(int i=0; i<26 ;i++) {
-        while(f[i]--){ // Append characters in sorted order
+        while(f[i]--){
             s[idx++]= char(i+'a');
         }
     }
-    s[idx]= '\0';
 
     cout<< s <<endl;
     

@@ -5,32 +5,20 @@ int main() {
     string s;
     getline(cin, s);
 
-    // Remove unwanted punctuation in-place
-    string clean;
-    for (char c : s) {
-        if (isalpha(c) || c == ' ') {
-            clean += c; // Keep only alphabets and spaces
+    //replace other characters with space
+    for(int i=0; i<s.size() ;i++){
+        if(!isalpha(s[i])){
+            s[i] = ' ';
         }
     }
 
-    // Trim leading/trailing spaces
-    while (!clean.empty() && clean.front() == ' ') {
-        clean.erase(clean.begin());
-    }
-    while (!clean.empty() && clean.back() == ' ') {
-        clean.pop_back();
-    }
-
-    // Count words
-    stringstream ss(clean);
+    stringstream ss(s);
     string word;
-    int count = 0;
-
-    while (ss >> word) {
+    int count=0;
+    while(ss >> word){
         count++;
     }
 
-    cout << count << endl;
-
+    cout<< count <<endl;
     return 0;
 }
